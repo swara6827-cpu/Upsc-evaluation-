@@ -10,9 +10,11 @@ type EvalResult = {
   improvements: string[];
 };
 
-const API_BASE =
+const rawBase =
   process.env.NEXT_PUBLIC_API_BASE ||
   "https://upsc-evaluation.onrender.com";
+
+const API_BASE = rawBase.replace(/\/+$/, "");
 
 export default function HomePage() {
   const [question, setQuestion] = useState("");
